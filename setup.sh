@@ -34,6 +34,12 @@ function startup () {
     mkdir $INIT_ROOT/resources
     mkdir $INIT_ROOT/notes
     mkdir $INIT_ROOT/schedule
+    read -p "Would you like to synchronize your $INIT_ROOT/notes directory with an existing git repository (Y/N)?" ans
+    if [ "$ans" = 'Y' ]; then
+	read -p "Remote: " remote
+        # Configure notes directory, synchronize with remote repository
+        git clone "$remote" "$INIT_ROOT/$notesdir"
+    fi
     printf "[-] Linking subdirectory archives to ${INIT_ROOT}/${archivedir}\n"
     ln -s "$(realpath $INIT_ROOT)/${archivedir}/${templatesdir}" "${INIT_ROOT}/${templatesdir}/archive"
     ln -s "$(realpath $INIT_ROOT)/${archivedir}/${notesdir}" "${INIT_ROOT}/${notesdir}/archive"
@@ -46,16 +52,6 @@ function startup () {
     cp "$PWD/base/README.md" "$INIT_ROOT"
     printf "[+] Init root successfully intialized at $INIT_ROOT\n"
     
-    read -p "Would you like to synchronize your $INIT_ROOT/notes directory with an existing git repository (Y/N)?" ans
-    if [ "$ans" = 'Y' ]; then
-	read -p "Remote: " remote
-        # Configure notes directory, synchronize with remote repository
-        cd "${INIT_ROOT}/${notesdir}"
-	git init
-        git branch -m main
-        git remote add origin "$remote"
-        git fetch origin
-    fi
 }
 
 # Dependecy check
