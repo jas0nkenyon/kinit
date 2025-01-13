@@ -10,7 +10,6 @@ archivedir='archive'
 scheduledir='schedule'
 
 
-source "$HOME/.bashrc"
 # Project initialization function
 function newproj () {
     read -p 'Project name: ' projname
@@ -25,7 +24,7 @@ function newproj () {
 # Function for first use
 function startup () {
     # Set up directory structure
-    [ -z "$INIT_ROOT" ] && echo "export INIT_ROOT=$(realpath $1)" >> "$HOME/.bashrc" && source "$HOME/.bashrc"
+    export INIT_ROOT="$(realpath $1)"
     [ -d "$INIT_ROOT" ] || mkdir "$INIT_ROOT"
     printf "[-] Initializing directory structure at $INIT_ROOT\n"
     mkdir $INIT_ROOT/templates
@@ -47,11 +46,13 @@ function startup () {
     cp "$PWD/base/README.md" "$INIT_ROOT"
     printf "[+] Init root successfully intialized at $INIT_ROOT\n"
     
-    read -p "Would you like to synchronize your $INIT_ROOT/notes directory with an existing git repository (Y/N)?\n" ans
+    read -p "Would you like to synchronize your $INIT_ROOT/notes directory with an existing git repository (Y/N)?" ans
     if [ "$ans" = 'Y' ]; then
+	read -p "Remote: " remote
         # Configure notes directory, synchronize with remote repository
-        git init "${INIT_ROOT}/${notesdir}"
-        git -m main
+        cd "${INIT_ROOT}/${notesdir}"
+	git init
+        git branch -m main
         git remote add origin "$remote"
         git fetch origin
     fi
