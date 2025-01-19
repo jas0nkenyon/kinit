@@ -1,5 +1,5 @@
 # Kinit
-Init is a command-line-centric knowledge management and productivity system.
+Kinit is a command-line-centric knowledge management and productivity system.
 
 ## Description
 There is an overwhelmingly large number of applications designed for note taking and project management. This is yet another
@@ -53,7 +53,7 @@ the dependencies is not in your `$PATH` or not installed. To fix this, ensure th
 the dependencies listed previously; if the issue persists, append the directory in which the program is stored to your path with the following command
 
 ```
-export "PATH=$PATH:/PATH/TO/PROGDIR" 
+export PATH="$PATH:/PATH/TO/PROGDIR" 
 ```
 
 If you encounter any other errors, feel free to contact me or create an issue; however, I can not guarantee that
