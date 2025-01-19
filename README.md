@@ -16,8 +16,7 @@ is meant for users who prefer extensibility and simplicity over pretty UIs.
 - Pandoc
 - Remind
 - File synchronization solution (not strictly necessary, but highly encouraged. Syncthing is an excellent alternative to proprietary services)
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+
 
 ### Installing
 
