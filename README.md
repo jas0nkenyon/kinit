@@ -1,62 +1,78 @@
-# Init
+# Kinit
 Init is a command-line-centric knowledge management and productivity system.
 
 ## Description
 There is an overwhelmingly large number of applications designed for note taking and project management. This is yet another
-such application. What distinguishes Init from other similar projects is its firm adherence to the unix philosophy; Init
+such application. What distinguishes Kinit from other similar projects is its firm adherence to the unix philosophy; Kinit
 is meant for users who prefer extensibility and simplicity over pretty UIs. 
 
 ## Getting Started
 
 ### Dependencies
 
+- A GNU/Linux Distribution
+- A command-line text editor 
+- Git
+- Pandoc
+- Remind
+- File synchronization solution (not strictly necessary, but highly encouraged. Syncthing is an excellent alternative to proprietary services)
 * Describe any prerequisites, libraries, OS version, etc., needed before installing program.
 * ex. Windows 10
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+1. Clone the repository
+    ```
+    git clone https://github.com/jas0nkenyon/kinit
+    ```
+2. Change directories
+    ```
+    cd kinit
+    ```
+3. Initialize kinit in the desired location (This will create a configuration file `$HOME/.kinitrc`. You may modify this if you prefer an alternate location.)
+    ```
+    ./kinit.sh -i PATH/TO/ROOT
+    ```
 
 ### Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+- To create a new project, use the `-p` flag 
+    ```
+    kinit.sh -p
+    ```
+- To create a new note, use the `-n` flag
+    ```
+    kinit.sh -n
+    ```
+- To list the tags that you have used in your notes, use the `-t` flag
+    ```
+    kinit -t
+    ```
 
 ## Help
+If you see an error like `Dependency FOO is not met`, one of
+the dependencies is not in your `$PATH` or not installed. To fix this, ensure that you have installed all
+the dependencies listed previously; if the issue persists, append the directory in which the program is stored to your path with the following command
 
-Any advise for common problems or issues.
 ```
-command to run if program contains helper info
+export "PATH=$PATH:/PATH/TO/PROGDIR" 
 ```
+
+If you encounter any other errors, feel free to contact me or create an issue; however, I can not guarantee that
+I will respond swiftly. If this project happens to be of interest of others, some generous community members may
+assist you.
 
 ## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+[Jason Kenyon](https://jason-kenyon.com)
 
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+- 0.1
+    - Initial Release
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the GPLv3 License - see the LICENSE file for details.
 
 ## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+- [remind](https://dianne.skoll.ca/projects/remind/)
+- [markdown](https://daringfireball.net/projects/markdown/)

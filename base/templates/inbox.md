@@ -3,6 +3,8 @@
 ## Date: YYYY-MM-DD
 
 ### Journal
+
+
 ---
 
 ### Highlights
@@ -13,7 +15,7 @@
 
 ### Notes
 - **Ideas**: 
-  - 
+  - Example: Build a physics simulation for a class project.
 - **Insights**:
   - Example: Realized that habit tracking could improve time management.
 - **Learnings**:
@@ -22,6 +24,8 @@
 ---
 
 ### Tasks / Actions
+- [ ] Task 1: Research upcoming seminars on AI and programming.
+- [ ] Task 2: Organize math notes for the week.
 
 ---
 
